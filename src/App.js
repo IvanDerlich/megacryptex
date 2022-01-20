@@ -1,26 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
+import Speedometer from './Speedometer';
+import Table from './Table';
+import Balance from './Balance';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Megacrytpex</p>
-        <p>Test auto deploy</p>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div id='desktop'>
+        <h1>Please switch to mobile</h1>
+      </div>
+      <div id='mobile'>
+        <Header />
+        <Balance />
+        <Speedometer />
+        <Table />
+      </div>
+    </>
   );
 }
 
