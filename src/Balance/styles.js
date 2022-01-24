@@ -9,7 +9,6 @@ export const styles = {
 }
 export const state = {
     width:'100%',
-    // color: 'red',
     fontWeight: 'bold',
     fontSize: '40px',
     textAlign: 'top'
