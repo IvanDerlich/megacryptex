@@ -1,9 +1,10 @@
-import styles from'./styles.js';
+import {styles, state} from'./styles.js';
+const balance = 53200
 
 function Balance() {
   return (
     <section style={styles}>
-        <p>Balance</p>
+      <div style={state}>{`Balance: $ ${balance}`}</div>
     </section>
   );
 }

@@ -1,9 +1,20 @@
-    const styles = {
+export const styles = {
     // border: '1px solid black',
     display: 'flex',
     justifyContent: 'center',
-    marginTop: '10px',
-    height: window.innerWidth*0.57,
+    flexWrap: 'wrap',
+    // marginTop: '10px',
+    border: '1px solid #364694',
+    paddingTop: '10px'
+    // height: window.innerWidth*0.5,
 }
 
-export default styles
+export const commonStyles = {
+    fontSize:'20px', 
+    verticalAlign:'center', 
+    marginTop:'0', 
+    marginBottom:'0',
+    width: '100%',
+    textAlign: 'center',
+    color: 'red'
+}

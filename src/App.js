@@ -11,9 +11,9 @@ function App() {
         <h1>Please switch to mobile</h1>
       </div>
       <div id='mobile'>
-        <Header />        
+        <Header />    
+        <Balance />   
         <Speedometer />
-        <Balance />
         <Table />
       </div>
     </>
