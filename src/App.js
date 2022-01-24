@@ -12,8 +12,8 @@ function App() {
       </div>
       <div id='mobile'>
         <Header />
-        <Balance />
         <Speedometer />
+        <Balance />
         <Table />
       </div>
     </>

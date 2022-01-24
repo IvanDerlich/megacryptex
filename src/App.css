@@ -1,3 +1,7 @@
+* {
+  overflow: hidden;
+}
+
 .intelisense-test {
   color: olivedrab;
 }
@@ -12,25 +16,17 @@
   text-align: center;
 }
 
+#mobile {
+  display: 'flex';
+  justify-content: 'center',
+}
+
 @media screen and (min-width: 480px) {
   #mobile {
     display: none;
   }
 }
 
-section {
-  min-height: 100px;
-}
 
-.header {
-  background-color: aqua;
-}
 
-.speedometer {
-  background-color: blueviolet;
-}
-
-.table {
-  background-color: coral;
-}
 
