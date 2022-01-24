@@ -8,7 +8,6 @@ function Speedometer() {
       <div style={{height: window.innerWidth*0.5, width: '100%'}}>
         <ReactSpeedometer 
           value={20} 
-          maxValue={100} 
           width={window.innerWidth*0.95}
           currentValueText=' '
           needleHeightRatio={0.6}
