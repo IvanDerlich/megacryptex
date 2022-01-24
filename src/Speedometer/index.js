@@ -9,7 +9,7 @@ function Speedometer() {
         maxValue={100} 
         width={window.innerWidth*0.95}
         needleHeightRatio={0.6}
-        ringWidth={100}
+        ringWidth={50}
         needleTransitionDuration={3333}
         needleTransition="easeElastic"
         needleColor={'black'}
@@ -18,19 +18,25 @@ function Speedometer() {
         customSegmentLabels={[
           {
             text: 'Label1',
-            textAlign: 'top'       
+            position: 'OUTSIDE',
           },{
             text: 'Label2',
+            position: 'OUTSIDE',
           },{
             text: 'Label3',
+            position: 'OUTSIDE',
           },{
             text: 'Label4',
+            position: 'OUTSIDE',
           },{
             text: 'Label5',
+            position: 'OUTSIDE',
           },{
             text: 'Label6',
+            position: 'OUTSIDE',
           },{
             text: 'Label7',
+            position: 'OUTSIDE',
           }
         ]}
       />
