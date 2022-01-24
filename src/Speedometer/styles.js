@@ -6,7 +6,6 @@ export const styles = {
     // marginTop: '10px',
     border: '1px solid #364694',
     paddingTop: '10px'
-    // height: window.innerWidth*0.5,
 }
 
 export const commonStyles = {

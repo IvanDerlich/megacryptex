@@ -22,25 +22,32 @@ function Speedometer() {
           customSegmentLabels={[
             {
               text: 'Label1',
-              position: 'OUTSIDE',
+              position: 'INSIDE',
+              fontSize: '10px',
             },{
               text: 'Label2',
-              position: 'OUTSIDE',
+              position: 'INSIDE',
+              fontSize: '10px',
             },{
               text: 'Label3',
-              position: 'OUTSIDE',
+              position: 'INSIDE',
+              fontSize: '10px',
             },{
               text: 'Label4',
-              position: 'OUTSIDE',
+              position: 'INSIDE',
+              fontSize: '10px',
             },{
               text: 'Label5',
-              position: 'OUTSIDE',
+              position: 'INSIDE',
+              fontSize: '10px',
             },{
               text: 'Label6',
-              position: 'OUTSIDE',
+              position: 'INSIDE',
+              fontSize: '10px',
             },{
               text: 'Label7',
-              position: 'OUTSIDE',
+              position: 'INSIDE',
+              fontSize: '10px',
             }
           ]}
         />
