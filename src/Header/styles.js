@@ -5,7 +5,7 @@ export const styles = {
     justifyContent: 'space-between',
     alignItems: 'flex-end',
     marginRight: '10px',
-    marginLeft: '10px'
+    marginLeft: '10px',
 }
 
 export const p = {

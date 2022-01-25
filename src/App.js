@@ -4,6 +4,7 @@ import Speedometer from './Speedometer';
 import Table from './Table';
 import Balance from './Balance';
 
+
 function App() {
   return (
     <>
