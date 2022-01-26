@@ -76,17 +76,15 @@ function TableComponent() {
                       <div><img 
                         src={row.logo} className='coin-logo'
                       /></div>
-                      <div style={{textAlign:'left'}}>
+                      <div style={{textAlign:'left',paddingLeft:'8px'}}>
                         <div>{row.quote}</div>
                         <div>{row.name}</div>
                       </div>
                     </div>
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    <div>
-                      <div>{row.changeAbs}</div>
-                      <div>{`(${row.changeRel}%)`}</div>
-                    </div>
+                    <div style={{textAlign: 'rigth'}}>{row.changeAbs}</div>
+                    <div style={{textAlign: 'rigth'}}>{`(${row.changeRel}%)`}</div>
                   </StyledTableCell>
                   <StyledTableCell align="right">
                     {row.buy}

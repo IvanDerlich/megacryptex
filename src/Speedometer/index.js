@@ -5,7 +5,7 @@ const percentage = -26
 function Speedometer() {
   return (
     <section style={styles}>
-      <div style={{height: window.innerWidth*0.5, width: '100%'}}>
+      <div style={{height: window.innerWidth*0.5, width: '100%',overflow:'hidden'}}>
         <ReactSpeedometer 
           value={20} 
           width={window.innerWidth*0.95}
