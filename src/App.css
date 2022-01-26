@@ -27,6 +27,16 @@
   }
 }
 
+th {
+  text-align: center !important;
+  padding: 0 !important;
+}
+
+.table-header-cell {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: blue;
+}
 
 
 

@@ -68,16 +68,22 @@ function TableComponent() {
           <Table aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell >SELL</StyledTableCell>
-                <StyledTableCell align="right">MARKET</StyledTableCell>
-                <StyledTableCell align="right">CHANGE</StyledTableCell>
-                <StyledTableCell align="right">BUY</StyledTableCell>
+                <StyledTableCell > <div className='table-header-cell'>SELL</div></StyledTableCell>
+                <StyledTableCell align="right">
+                  <div className='table-header-cell'>MARKET</div>
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  <div className='table-header-cell'>CHANGE</div>
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  <div className='table-header-cell'>BUY</div>
+                </StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row) => (
                 <StyledTableRow key={row.name}>
-                  <StyledTableCell component="th" scope="row">
+                  <StyledTableCell  scope="row">
                     {row.name}
                   </StyledTableCell>
                   <StyledTableCell align="right">{row.calories}</StyledTableCell>
