@@ -1,0 +1,6 @@
+.coin-logo {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+}

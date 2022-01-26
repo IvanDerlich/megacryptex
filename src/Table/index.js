@@ -1,5 +1,4 @@
 import { styles, logoStyles } from'./styles.js';
-import xrpLogo from '../assets/xrp_logo.png'
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -9,6 +8,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import xrpLogo from '../assets/xrp_logo.png'
+import btcLogo from '../assets/btc_logo.png'
+import ethLogo from '../assets/eth_logo.jpeg'
+import './styles.css'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -17,7 +20,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
-    color: 'red'
   },
 }));
 
@@ -28,34 +30,17 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   // hide last border
   '&:last-child td, &:last-child th': {
     border: 0,
+    textAlign:'left',
   },
 }));
 
-function createData(name, calories, fat, carbs) {
-  return { name, calories, fat, carbs };
+function createData( sell, quote, logo, name, changeAbs, changeRel, buy) {
+  return { sell, quote, logo, name, changeAbs, changeRel, buy };
 }
 
 const rows = [
-  createData('Frozen', 159, 6.0, 24),
-  createData('Ice cream', 237, 9.0, 37),
-  createData('Eclair', 262, 16.0, 24),
-  createData('Cupcake', 305, 3.7, 67),
-  createData('Gingerbread', 356, 16.0, 49),
-  createData('Frozen', 159, 6.0, 24),
-  createData('Ice cream', 237, 9.0, 37),
-  createData('Eclair', 262, 16.0, 24),
-  createData('Cupcake', 305, 3.7, 67),
-  createData('Gingerbread', 356, 16.0, 49),
-  createData('Frozen ', 159, 6.0, 24),
-  createData('Ice cream', 237, 9.0, 37),
-  createData('Eclair', 262, 16.0, 24),
-  createData('Cupcake', 305, 3.7, 67),
-  createData('Gingerbread', 356, 16.0, 49),
-  createData('Frozen', 159, 6.0, 24),
-  createData('Ice cream', 237, 9.0, 37),
-  createData('Eclair', 262, 16.0, 24),
-  createData('Cupcake', 305, 3.7, 67),
-  createData('Gingerbread', 356, 16.0, 49),
+  createData(64743.00, 'BTC', btcLogo, 'Bitcoin', 550.01, 0.86, 65364.41),
+  createData(4568.9659, 'ETH', ethLogo, 'Ethereum', 31.6387, 0.70, 4660.8133),
 ];
 
 function TableComponent() {
@@ -82,13 +67,30 @@ function TableComponent() {
             </TableHead>
             <TableBody>
               {rows.map((row) => (
-                <StyledTableRow key={row.name}>
+                <StyledTableRow key={row.quote}>
                   <StyledTableCell  scope="row">
-                    {row.name}
+                    {row.sell}
                   </StyledTableCell>
-                  <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                  <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                  <StyledTableCell align="right">{row.carbs}</StyledTableCell>
+                  <StyledTableCell align="right">
+                    <div style={{display:'flex', flexDirection: 'row'}}>
+                      <div><img 
+                        src={row.logo} className='coin-logo'
+                      /></div>
+                      <div style={{textAlign:'left'}}>
+                        <div>{row.quote}</div>
+                        <div>{row.name}</div>
+                      </div>
+                    </div>
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    <div>
+                      <div>{row.changeAbs}</div>
+                      <div>{`(${row.changeRel}%)`}</div>
+                    </div>
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    {row.buy}
+                  </StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
