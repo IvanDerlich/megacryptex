@@ -39,9 +39,11 @@ function createData( sell, quote, logo, name, changeAbs, changeRel, buy) {
 }
 
 const rows = [
-  createData(64743.00, 'BTC', btcLogo, 'Bitcoin', 550.01, 0.86, 65364.41),
-  createData(4568.9659, 'ETH', ethLogo, 'Ethereum', 31.6387, 0.70, 4660.8133),
+  createData(64743.0, 'BTC', btcLogo, 'Bitcoin', 550.01, 0.86, 65364.4),
+  createData(4568.9, 'ETH', ethLogo, 'Ethereum', 31.6387, 0.70, 4660.8),
 ];
+
+console.log(rows)
 
 function TableComponent() {
   return (
@@ -58,15 +60,31 @@ function TableComponent() {
               <th className='coins-table-header buy'>BUY</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td></td>
-            </tr>
+          <tbody>   
+            {rows.map((row) =>(
+              <tr key={row.quote}>
+                <td>{row.sell}</td>
+                <td className='market-row'>
+                  <div className='logo-container'><img 
+                    src={row.logo} className='coin-logo'
+                  /></div>
+                  <div className='market-row-right'>
+                    <div>{row.quote}</div>
+                    <div>{row.name}</div>
+                  </div>
+                </td>
+                <td>
+                  <div style={{textAlign: 'rigth'}}>{row.changeAbs}</div>
+                  <div style={{textAlign: 'rigth'}}>{`(${row.changeRel}%)`}</div>
+                </td>
+                <td>{row.buy}</td>
+              </tr>
+            ))}    
           </tbody>
         </table>
-        <TableContainer component={Paper} style={{overflow:'hidden'}}>
-          <Table aria-label="customized table">
-            <TableHead>
+        {/* <TableContainer component={Paper} style={{overflow:'hidden'}}>
+          <Table aria-label="customized table"> */}
+            {/* <TableHead>
               <TableRow>
                 <StyledTableCell > <div className='table-header-cell'>SELL</div></StyledTableCell>
                 <StyledTableCell align="right">
@@ -79,8 +97,8 @@ function TableComponent() {
                   <div className='table-header-cell'>BUY</div>
                 </StyledTableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
+            </TableHead> */}
+            {/* <TableBody>
               {rows.map((row) => (
                 <StyledTableRow key={row.quote}>
                   <StyledTableCell align="right" scope="row" padding='none'>
@@ -116,7 +134,7 @@ function TableComponent() {
               ))}
             </TableBody>
           </Table>
-        </TableContainer>
+        </TableContainer> */}
     </section>
   );
 }

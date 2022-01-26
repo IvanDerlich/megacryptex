@@ -1,8 +1,10 @@
 .coin-logo {
     width: 40px;
     height: 40px;
-    display: flex;
-    flex-direction: row;
+}
+
+.logo-container {
+    text-align: center;
 }
 
 .coins-table-header {
@@ -16,7 +18,7 @@
 }
 
 .coins-table-header.market {
-    width: 10%;
+    width: 15%;
 }
 
 .coins-table-header.change {
@@ -25,4 +27,33 @@
 
 .coins-table-header.buy {
     width: 10%;
+    text-align: left !important;
+}
+
+.market-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 320px) {
+    .market-row {
+        flex-direction: column;
+    }
+}
+
+.table {
+    margin-right: 5px;
+}
+
+.market-row-right {
+    text-align: left;
+    padding-left: 8px;
+}
+
+@media screen and (max-width: 320px) {
+    .market-row-right {
+        padding-left: 0;
+        font-size: 4.5vw;
+        text-align: center;
+    }
 }
