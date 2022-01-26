@@ -51,10 +51,9 @@ function Speedometer() {
             }
           ]}
         />
-      </div>  
-      <p style={{...commonStyles, fontSize:'50px'}}>{percentage}</p>
-      <span style={{...commonStyles, textTransform: 'uppercase'}}>Unsustainable</span>
-      
+      </div>
+      <div style={{...commonStyles, display:'block',fontSize:'6vw'}}>{percentage}</div>
+      <div style={{...commonStyles, display:'inline-block',textTransform: 'uppercase', fontSize: '8vw',}}>Unsustainable</div>      
     </section>
   );
 }

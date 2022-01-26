@@ -1,8 +1,6 @@
-const width = window.innerWidth
 
 export const styles = {
     border: '1px solid #364694',
-    width: width,
 }
 
 export const logoStyles = { 
@@ -10,4 +8,5 @@ export const logoStyles = {
     display:'flex', 
     justifyContent:'center',
     marginTop: '10px',
+    marginBottom: '10px'
 }

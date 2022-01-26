@@ -5,6 +5,24 @@
     flex-direction: row;
 }
 
-change-cell>div{
-    text-align: right !important;
+.coins-table-header {
+    text-align: center !important;
+    padding: 0 !important;
+    background-color: rgb(223, 223, 223);
+}
+
+.coins-table-header.sell {
+    width: 10%;
+}
+
+.coins-table-header.market {
+    width: 10%;
+}
+
+.coins-table-header.change {
+    width: 10%;
+}
+
+.coins-table-header.buy {
+    width: 10%;
 }

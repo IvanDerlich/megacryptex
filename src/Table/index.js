@@ -49,6 +49,21 @@ function TableComponent() {
         <div style={logoStyles}>
           <img src={xrpLogo} style={{width:'50px',height:'50px'}} alt='coin logo'/>
         </div>
+        <table>
+          <thead>
+            <tr>
+              <th className='coins-table-header sell'>SELL</th>
+              <th className='coins-table-header market'>MARKET</th>
+              <th className='coins-table-header change'>CHANGE</th>
+              <th className='coins-table-header buy'>BUY</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
         <TableContainer component={Paper} style={{overflow:'hidden'}}>
           <Table aria-label="customized table">
             <TableHead>
@@ -68,8 +83,16 @@ function TableComponent() {
             <TableBody>
               {rows.map((row) => (
                 <StyledTableRow key={row.quote}>
-                  <StyledTableCell  scope="row">
-                    {row.sell}
+                  <StyledTableCell align="right" scope="row" padding='none'>
+                    <div style={{
+                      backgroundColor:'red',
+                      height:'100%',
+                      height: '4vh',
+                      marginLeft: '2vw',
+                      textAlign: 'center',
+                      paddingTop: '1.5vw',
+                      fontSize:'20px',  
+                    }}>{row.sell}</div>
                   </StyledTableCell>
                   <StyledTableCell align="right">
                     <div style={{display:'flex', flexDirection: 'row'}}>
