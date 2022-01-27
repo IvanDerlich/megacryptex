@@ -1,6 +1,6 @@
 import xrpLogo from '../assets/xrp_logo.png'
 import btcLogo from '../assets/btc_logo.png'
-import ethLogo from '../assets/eth_logo.jpeg'
+import ethLogo from '../assets/eth_logo.png'
 import bchLogo from '../assets/bch_logo.png'
 import adaLogo from '../assets/ada_logo.png'
 
