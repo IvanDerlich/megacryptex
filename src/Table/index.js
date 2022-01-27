@@ -1,49 +1,23 @@
-import { styles, logoStyles } from'./styles.js';
+import { styles, logoStyles, sellStyles, buyStyles } from'./styles.js';
 import React from 'react';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import xrpLogo from '../assets/xrp_logo.png'
 import btcLogo from '../assets/btc_logo.png'
 import ethLogo from '../assets/eth_logo.jpeg'
+import bchLogo from '../assets/bch_logo.png'
+import adaLogo from '../assets/ada_logo.png'
 import './styles.css'
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.grey,
-    color: theme.palette.common.black,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-    textAlign:'left',
-  },
-}));
-
-function createData( sell, quote, logo, name, changeAbs, changeRel, buy) {
-  return { sell, quote, logo, name, changeAbs, changeRel, buy };
+function createData( sell, quote, logo, name, changeAbs, changeRel, buy, action) {
+  return { sell, quote, logo, name, changeAbs, changeRel, buy, action };
 }
 
 const rows = [
-  createData(64743.0, 'BTC', btcLogo, 'Bitcoin', 550.01, 0.86, 65364.4),
-  createData(4568.9, 'ETH', ethLogo, 'Ethereum', 31.6387, 0.70, 4660.8),
+  createData(64743.0, 'BTC', btcLogo, 'Bitcoin', 550.01, 0.86, 65364.4, 'sell'),
+  createData(4568.9, 'ETH', ethLogo, 'Ethereum', 31.6387, 0.70, 4660.8, 'buy'),
+  createData(1.1693, 'XRP', xrpLogo, 'XRP', 0.0014, 0.12  , 1.2018, null),
+  createData(666.63, 'BCH', bchLogo, 'Bitcoin Cash', 6.42, 0.97  , 683.66, null),
+  createData(2.0045, 'ADA', adaLogo, 'Cardano', -0.0039, -0.19  , 2.0655, null),
 ];
-
-console.log(rows)
 
 function TableComponent() {
   return (
@@ -63,78 +37,31 @@ function TableComponent() {
           <tbody>   
             {rows.map((row) =>(
               <tr key={row.quote}>
-                <td>{row.sell}</td>
+                <td className='transaction-cell sell-cell'>
+                  <div style={row.action == 'sell'? sellStyles : {}}>{row.sell}</div>
+                </td>
                 <td className='market-row'>
                   <div className='logo-container'><img 
                     src={row.logo} className='coin-logo'
                   /></div>
                   <div className='market-row-right'>
-                    <div>{row.quote}</div>
-                    <div>{row.name}</div>
+                    <div className='cell-quote'>{row.quote}</div>
+                    <div className='cell-name'>{row.name}</div>
                   </div>
                 </td>
-                <td>
-                  <div style={{textAlign: 'rigth'}}>{row.changeAbs}</div>
-                  <div style={{textAlign: 'rigth'}}>{`(${row.changeRel}%)`}</div>
+                <td className={`change-cell ${row.changeRel < 0 ? 'negative-change':''}`}>
+                  <div>{row.changeAbs}</div>
+                  <div>
+                    {`${row.changeRel < 0 ? '\u25BE' : '\u25B4' } (${row.changeRel}%)`}
+                  </div>
                 </td>
-                <td>{row.buy}</td>
+                <td className='transaction-cell'>
+                  <div style={row.action == 'buy'? buyStyles : {}}>{row.buy}</div>
+                </td>
               </tr>
             ))}    
           </tbody>
         </table>
-        {/* <TableContainer component={Paper} style={{overflow:'hidden'}}>
-          <Table aria-label="customized table"> */}
-            {/* <TableHead>
-              <TableRow>
-                <StyledTableCell > <div className='table-header-cell'>SELL</div></StyledTableCell>
-                <StyledTableCell align="right">
-                  <div className='table-header-cell'>MARKET</div>
-                </StyledTableCell>
-                <StyledTableCell align="right">
-                  <div className='table-header-cell'>CHANGE</div>
-                </StyledTableCell>
-                <StyledTableCell align="right">
-                  <div className='table-header-cell'>BUY</div>
-                </StyledTableCell>
-              </TableRow>
-            </TableHead> */}
-            {/* <TableBody>
-              {rows.map((row) => (
-                <StyledTableRow key={row.quote}>
-                  <StyledTableCell align="right" scope="row" padding='none'>
-                    <div style={{
-                      backgroundColor:'red',
-                      height:'100%',
-                      height: '4vh',
-                      marginLeft: '2vw',
-                      textAlign: 'center',
-                      paddingTop: '1.5vw',
-                      fontSize:'20px',  
-                    }}>{row.sell}</div>
-                  </StyledTableCell>
-                  <StyledTableCell align="right">
-                    <div style={{display:'flex', flexDirection: 'row'}}>
-                      <div><img 
-                        src={row.logo} className='coin-logo'
-                      /></div>
-                      <div style={{textAlign:'left',paddingLeft:'8px'}}>
-                        <div>{row.quote}</div>
-                        <div>{row.name}</div>
-                      </div>
-                    </div>
-                  </StyledTableCell>
-                  <StyledTableCell align="right">
-                    <div style={{textAlign: 'rigth'}}>{row.changeAbs}</div>
-                    <div style={{textAlign: 'rigth'}}>{`(${row.changeRel}%)`}</div>
-                  </StyledTableCell>
-                  <StyledTableCell align="right">
-                    {row.buy}
-                  </StyledTableCell>
-                </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer> */}
     </section>
   );
 }

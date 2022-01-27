@@ -11,6 +11,7 @@
     text-align: center !important;
     padding: 0 !important;
     background-color: rgb(223, 223, 223);
+    font-weight: 100;
 }
 
 .coins-table-header.sell {
@@ -18,11 +19,11 @@
 }
 
 .coins-table-header.market {
-    width: 15%;
+    width: 10%;
 }
 
 .coins-table-header.change {
-    width: 10%;
+    width: 15%;
 }
 
 .coins-table-header.buy {
@@ -33,6 +34,7 @@
 .market-row {
     display: flex;
     flex-direction: row;
+    margin-top: 16px;
 }
 
 @media screen and (max-width: 320px) {
@@ -56,4 +58,40 @@
         font-size: 4.5vw;
         text-align: center;
     }
+}
+
+.transaction-cell {
+    text-align: right;
+    line-height: 40px;
+}
+
+.transaction-cell>div {
+    width:fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.cell-quote {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cell-name {
+    font-weight: 100;
+    font-size: small;
+}
+
+.change-cell {
+    color: green;
+}
+
+.change-cell * {
+    text-align: center;
+}
+
+.negative-change {
+    color: red
 }
