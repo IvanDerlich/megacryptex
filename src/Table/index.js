@@ -1,5 +1,6 @@
 import { styles, logoStyles, sellStyles, buyStyles } from'./styles.js';
 import React from 'react';
+import Row from './Row'
 import xrpLogo from '../assets/xrp_logo.png'
 import btcLogo from '../assets/btc_logo.png'
 import ethLogo from '../assets/eth_logo.jpeg'
@@ -11,7 +12,7 @@ function createData( sell, quote, logo, name, changeAbs, changeRel, buy, action)
   return { sell, quote, logo, name, changeAbs, changeRel, buy, action };
 }
 
-const rows = [
+const tableData = [
   createData(64743.0, 'BTC', btcLogo, 'Bitcoin', 550.01, 0.86, 65364.4, 'sell'),
   createData(4568.9, 'ETH', ethLogo, 'Ethereum', 31.6387, 0.70, 4660.8, 'buy'),
   createData(1.1693, 'XRP', xrpLogo, 'XRP', 0.0014, 0.12  , 1.2018, null),
@@ -35,31 +36,7 @@ function TableComponent() {
             </tr>
           </thead>
           <tbody>   
-            {rows.map((row) =>(
-              <tr key={row.quote}>
-                <td className='transaction-cell sell-cell'>
-                  <div style={row.action == 'sell'? sellStyles : {}}>{row.sell}</div>
-                </td>
-                <td className='market-row'>
-                  <div className='logo-container'><img 
-                    src={row.logo} className='coin-logo'
-                  /></div>
-                  <div className='market-row-right'>
-                    <div className='cell-quote'>{row.quote}</div>
-                    <div className='cell-name'>{row.name}</div>
-                  </div>
-                </td>
-                <td className={`change-cell ${row.changeRel < 0 ? 'negative-change':''}`}>
-                  <div>{row.changeAbs}</div>
-                  <div>
-                    {`${row.changeRel < 0 ? '\u25BE' : '\u25B4' } (${row.changeRel}%)`}
-                  </div>
-                </td>
-                <td className='transaction-cell'>
-                  <div style={row.action == 'buy'? buyStyles : {}}>{row.buy}</div>
-                </td>
-              </tr>
-            ))}    
+            {tableData.map((rowData) =>(<Row data={rowData} key={rowData.quote}/>))}    
           </tbody>
         </table>
     </section>
