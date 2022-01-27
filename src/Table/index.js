@@ -9,7 +9,11 @@ function TableComponent() {
   return (
     <section className='table-section' style={styles}>
         <div style={logoStyles}>
-          <img src={logos[selectionQuote]} style={{width:'50px',height:'50px'}} alt='coin logo'/>
+          {selectionQuote && (<img 
+            src={logos[selectionQuote]}
+            style={{width:'50px',height:'50px'}}
+            alt='coin logo'
+          />)}
         </div>
         <table>
           <thead>
