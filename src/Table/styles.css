@@ -1,3 +1,5 @@
+table { border-collapse: collapse; }
+
 .coin-logo {
     width: 40px;
     height: 40px;
@@ -23,7 +25,7 @@
 }
 
 .coins-table-header.change {
-    width: 15%;
+    width: 20%;
 }
 
 .coins-table-header.buy {
@@ -72,26 +74,4 @@
     margin-top: 15px;
     margin-bottom: 10px;
     border-radius: 4px;
-}
-
-.cell-quote {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.cell-name {
-    font-weight: 100;
-    font-size: small;
-}
-
-.change-cell {
-    color: green;
-}
-
-.change-cell * {
-    text-align: center;
-}
-
-.negative-change {
-    color: red
 }
